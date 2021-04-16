@@ -29,6 +29,9 @@ $RECYCLE.BIN/
 *.*pdb
 *.*obj
 *.idb
+*.recipe
+*.exp
+x64
 
 # =========================
 # Operating System Files
