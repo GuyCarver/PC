@@ -60,9 +60,6 @@ Temporary Items
 .apdisk
 build
 
-raspi.sublime-workspace
 *.ida
-*.wav
-*.ogg
 *.sublime-workspace
 *.sublime-project

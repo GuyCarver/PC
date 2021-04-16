@@ -27,7 +27,6 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // FILE	oledlib.cpp
-// BY	  gcarver
 // DATE	03/06/2021 12:19 PM
 //----------------------------------------------------------------------
 
