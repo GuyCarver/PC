@@ -246,7 +246,7 @@ extern "C"
 {
 
 //--------------------------------------------------------
-bool Startup(  )
+__declspec(dllexport) bool Startup(  )
 {
 	if (!pca9865::QInstance()) {
 		new pca9865();
@@ -256,14 +256,14 @@ bool Startup(  )
 }
 
 //--------------------------------------------------------
-bool IsGood(  )
+__declspec(dllexport) bool IsGood(  )
 {
 	auto p = pca9865::QInstance();
 	return p ? p->QGood() : false;
 }
 
 //--------------------------------------------------------
-void Shutdown(  )
+__declspec(dllexport) void Shutdown(  )
 {
 	auto p = pca9865::QInstance();
 	if (p) {
@@ -272,7 +272,7 @@ void Shutdown(  )
 }
 
 //--------------------------------------------------------
-void SetFreq( uint32_t aFreq )
+__declspec(dllexport) void SetFreq( uint32_t aFreq )
 {
 	auto p = pca9865::QInstance();
 	if (p) {
@@ -281,7 +281,7 @@ void SetFreq( uint32_t aFreq )
 }
 
 //--------------------------------------------------------
-void Off( uint8_t aServo )
+__declspec(dllexport) void Off( uint8_t aServo )
 {
 	auto p = pca9865::QInstance();
 	if (p) {
@@ -290,7 +290,7 @@ void Off( uint8_t aServo )
 }
 
 //--------------------------------------------------------
-void AllOff(  )
+__declspec(dllexport) void AllOff(  )
 {
 	auto p = pca9865::QInstance();
 	if (p) {
@@ -300,7 +300,7 @@ void AllOff(  )
 
 //--------------------------------------------------------
 // Set servo to percentage (0.0-1.0)
-void Set( uint8_t aServo, float aPerc )
+__declspec(dllexport) void Set( uint8_t aServo, float aPerc )
 {
 	auto p = pca9865::QInstance();
 	if (p) {
@@ -312,7 +312,7 @@ void Set( uint8_t aServo, float aPerc )
 
 //--------------------------------------------------------
 // Set angle to range -90/+90
-void SetAngle( uint8_t aServo, float aAngle )
+__declspec(dllexport) void SetAngle( uint8_t aServo, float aAngle )
 {
 	auto p = pca9865::QInstance();
 	if (p) {
@@ -322,7 +322,7 @@ void SetAngle( uint8_t aServo, float aAngle )
 
 //--------------------------------------------------------
 //Set PWM values 0-4095
-void SetPWM( uint8_t aServo, uint32_t aOn, uint32_t aOff )
+__declspec(dllexport) void SetPWM( uint8_t aServo, uint32_t aOn, uint32_t aOff )
 {
 	auto p = pca9865::QInstance();
 	if (p) {
