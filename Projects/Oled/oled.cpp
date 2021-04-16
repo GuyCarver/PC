@@ -70,17 +70,21 @@
 //	406 40E
 //	407 40F
 
+extern "C" {
+
 //Make the following values visible to the outside.
-extern const uint8_t STOP = 0;
-extern const uint8_t LEFT = 1;
-extern const uint8_t RIGHT = 2;
-extern const uint8_t DIAGLEFT = 3;
-extern const uint8_t DIAGRIGHT = 4;
+__declspec(dllexport) extern const uint8_t STOP = 0;
+__declspec(dllexport) extern const uint8_t LEFT = 1;
+__declspec(dllexport) extern const uint8_t RIGHT = 2;
+__declspec(dllexport) extern const uint8_t DIAGLEFT = 3;
+__declspec(dllexport) extern const uint8_t DIAGRIGHT = 4;
 
 //Indexes for the Fonts array used for text/char rendering.
-extern const uint8_t TERMINAL = 0;
-extern const uint8_t SYS = 1;
-extern const uint8_t SERIF = 2;
+__declspec(dllexport) extern const uint8_t TERMINAL = 0;
+__declspec(dllexport) extern const uint8_t SYS = 1;
+__declspec(dllexport) extern const uint8_t SERIF = 2;
+
+} //extern "C"
 
 //Include the fonts here.
 #include "terminalfont.ipp"
@@ -755,7 +759,7 @@ extern "C"
 {
 
 //--------------------------------------------------------
-void Startup(  )
+__declspec(dllexport) void Startup(  )
 {
 	if (oled::QInstance() == nullptr) {
 		new oled();
@@ -763,7 +767,7 @@ void Startup(  )
 }
 
 //--------------------------------------------------------
-void Shutdown(  )
+__declspec(dllexport) void Shutdown(  )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -772,7 +776,7 @@ void Shutdown(  )
 }
 
 //--------------------------------------------------------
-void Text( uint32_t aX, uint32_t aY, const char *apString, uint8_t aOn, uint8_t aFont, uint32_t aSzX, uint32_t aSzY )
+__declspec(dllexport) void Text( uint32_t aX, uint32_t aY, const char *apString, uint8_t aOn, uint8_t aFont, uint32_t aSzX, uint32_t aSzY )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -784,7 +788,7 @@ void Text( uint32_t aX, uint32_t aY, const char *apString, uint8_t aOn, uint8_t 
 }
 
 //--------------------------------------------------------
-void Char( uint32_t aSX, uint32_t aSY, unsigned char aChar, bool aOn,
+__declspec(dllexport) void Char( uint32_t aSX, uint32_t aSY, unsigned char aChar, bool aOn,
 	uint8_t aFont, uint32_t aSzX = 1, uint32_t aSzY = 1 )
 {
 	auto p = oled::QInstance();
@@ -797,7 +801,7 @@ void Char( uint32_t aSX, uint32_t aSY, unsigned char aChar, bool aOn,
 }
 
 //--------------------------------------------------------
-void OFillRect( uint32_t aSX, uint32_t aSY, uint32_t aW, uint32_t aH, bool aOn )
+__declspec(dllexport) void OFillRect( uint32_t aSX, uint32_t aSY, uint32_t aW, uint32_t aH, bool aOn )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -806,7 +810,7 @@ void OFillRect( uint32_t aSX, uint32_t aSY, uint32_t aW, uint32_t aH, bool aOn )
 }
 
 //--------------------------------------------------------
-void Line( uint32_t aSX, uint32_t aSY, uint32_t aEX, uint32_t aEY, bool aOn )
+__declspec(dllexport) void Line( uint32_t aSX, uint32_t aSY, uint32_t aEX, uint32_t aEY, bool aOn )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -815,7 +819,7 @@ void Line( uint32_t aSX, uint32_t aSY, uint32_t aEX, uint32_t aEY, bool aOn )
 }
 
 //--------------------------------------------------------
-void Pixel( uint32_t aX, uint32_t aY, bool aOn )
+__declspec(dllexport) void Pixel( uint32_t aX, uint32_t aY, bool aOn )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -824,7 +828,7 @@ void Pixel( uint32_t aX, uint32_t aY, bool aOn )
 }
 
 //--------------------------------------------------------
-void Clear(  )
+__declspec(dllexport) void Clear(  )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -833,7 +837,7 @@ void Clear(  )
 }
 
 //--------------------------------------------------------
-void Fill( uint8_t aValue )
+__declspec(dllexport) void Fill( uint8_t aValue )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -842,7 +846,7 @@ void Fill( uint8_t aValue )
 }
 
 //--------------------------------------------------------
-void SetOn( bool aOn )
+__declspec(dllexport) void SetOn( bool aOn )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -851,7 +855,7 @@ void SetOn( bool aOn )
 }
 
 //--------------------------------------------------------
-bool GetOn(  )
+__declspec(dllexport) bool GetOn(  )
 {
 	auto p = oled::QInstance();
 	return p ? p->GetOn() : false;
@@ -859,7 +863,7 @@ bool GetOn(  )
 
 
 //--------------------------------------------------------
-void SetInverted( bool aInverted )
+__declspec(dllexport) void SetInverted( bool aInverted )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -868,14 +872,14 @@ void SetInverted( bool aInverted )
 }
 
 //--------------------------------------------------------
-bool GetInverted(  )
+__declspec(dllexport) bool GetInverted(  )
 {
 	auto p = oled::QInstance();
 	return p ? p->GetInverted() : false;
 }
 
 //--------------------------------------------------------
-void SetRotation( uint8_t aRotation )
+__declspec(dllexport) void SetRotation( uint8_t aRotation )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -884,14 +888,14 @@ void SetRotation( uint8_t aRotation )
 }
 
 //--------------------------------------------------------
-uint8_t GetRotation(  )
+__declspec(dllexport) uint8_t GetRotation(  )
 {
 	auto p = oled::QInstance();
 	return p ? p->GetRotation() : 0;
 }
 
 //--------------------------------------------------------
-void SetDim( uint8_t aValue )
+__declspec(dllexport) void SetDim( uint8_t aValue )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -900,14 +904,14 @@ void SetDim( uint8_t aValue )
 }
 
 //--------------------------------------------------------
-uint8_t GetDim(  )
+__declspec(dllexport) uint8_t GetDim(  )
 {
 	auto p = oled::QInstance();
 	return p ? p->GetDim() : 0;
 }
 
 //--------------------------------------------------------
-void Display(  )
+__declspec(dllexport) void Display(  )
 {
 	auto p = oled::QInstance();
 	if (p) {
@@ -916,7 +920,7 @@ void Display(  )
 }
 
 //--------------------------------------------------------
-const uint32_t *GetSize(  )
+__declspec(dllexport) const uint32_t *GetSize(  )
 {
 	static const uint32_t defsize[2] = {128, 64};
 	auto p = oled::QInstance();
@@ -924,7 +928,7 @@ const uint32_t *GetSize(  )
 }
 
 //--------------------------------------------------------
-void Scroll( uint8_t aDirection, uint8_t aStart, uint8_t aStop )
+__declspec(dllexport) void Scroll( uint8_t aDirection, uint8_t aStart, uint8_t aStop )
 {
 	auto p = oled::QInstance();
 	if (p) {
