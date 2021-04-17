@@ -42,7 +42,7 @@
 #include <cstdint>
 #include <chrono>
 #include <thread>
-#include "CH341DLL.H"							// For interface to I2C controller
+#include <CH341DLL.H>							// For interface to I2C controller
 
 namespace
 {
