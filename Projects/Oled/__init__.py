@@ -57,6 +57,16 @@ def geton(  ):
   return _lib.GetOn()
 
 #--------------------------------------------------------
+def on(  ):
+  ''' Set the display on. '''
+  seton(True)
+
+#--------------------------------------------------------
+def off(  ):
+  ''' Set the display off. '''
+  seton(False)
+
+#--------------------------------------------------------
 def setinverted( aTF ):
   ''' Set the display inversion. '''
   _lib.SetInverted(aTF)

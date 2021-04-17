@@ -44,7 +44,7 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
-#include "CH341DLL.H"							// For interface to I2C controller
+#include <CH341DLL.H>							// For interface to I2C controller
 
 //NOTE: This current code will set the pixel at 0,0 but the scrolling will not scroll it.  Don't know if it's software causing it or not.
 
