@@ -332,6 +332,7 @@ __declspec(dllexport) void SetPWM( uint8_t aServo, uint32_t aOn, uint32_t aOff )
 
 } //extern C
 
+#if !defined(_WINDLL)
 //--------------------------------------------------------
 int32_t main(  )
 {
@@ -350,4 +351,5 @@ int32_t main(  )
 	delayMicroseconds(1000);
 	Shutdown();
 }
+#endif //!_WINDLL
 

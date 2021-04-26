@@ -4,7 +4,7 @@
 from ctypes import CDLL, c_bool, c_float
 
 # Located in usr/local/bin
-_lib = CDLL(__path__[0] + '/pca9865.dll')
+_lib = CDLL(__path__[0] + '/pca9685.dll')
 
 def startup(  ):
   ''' Initialize the singleton version of the system. '''
