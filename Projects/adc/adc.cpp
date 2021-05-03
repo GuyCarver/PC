@@ -42,7 +42,8 @@
 
 namespace
 {
-	constexpr uint8_t _ADDRESS = 0x48;
+	constexpr uint8_t _ADDRESS = 0x48;			// Default (GND)
+												//0x49 = VCC, 0x4A = SDA, 0x4B = SDL
 
 	constexpr uint8_t _RA_CONVERSION = 0x00;
 	constexpr uint8_t _RA_CONFIG = 0x01;
@@ -179,9 +180,9 @@ extern "C"
 {
 
 //--------------------------------------------------------
-__declspec(dllexport) void *Create(  )
+void *Create( uint8_t aAddress = _ADDRESS )
 {
-	return new adc();
+	return new adc(aAddress);
 }
 
 //--------------------------------------------------------
